@@ -1,0 +1,22 @@
+﻿@model ispitnaa.Models.AddWorkGroupModel
+@{
+    ViewBag.Title = "AddWorkGroup";
+}
+
+<h2>Add WorkGroup</h2>
+
+<h3>@ViewBag.Name</h3>
+
+
+@using (Html.BeginForm("AddWorkGroup", "Employees"))
+{
+    <div class="form-group">
+    @Html.LabelFor(m => m.WorkGroupId)
+    @Html.DropDownListFor(m => m.WorkGroupId, new SelectList(Model.workGroups, "WorkGroupId", "Name"), new { @class = "form-control" })
+    @Html.HiddenFor( m=> m.EmployeeId)
+
+    <button type="submit" class="btn btn-default">Додади</button>
+</div>
+}
+
+
